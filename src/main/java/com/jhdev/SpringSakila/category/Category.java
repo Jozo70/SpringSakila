@@ -1,14 +1,14 @@
-package com.jhdev.SpringSakila.catagory;
+package com.jhdev.SpringSakila.category;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "catagory")
-public class Catagory {
+@Table(name = "category")
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "catagory_id")
-    private int catagoryID;
+    @Column(name = "category_id")
+    private int categoryID;
 
     @Column(name = "name")
     private String catName;
@@ -16,14 +16,14 @@ public class Catagory {
     @Column(name = "last_update")
     private String lastUpdate;
 
-    public Catagory(){}
+    public Category(){}
 
-    public int getCatagoryID() {
-        return catagoryID;
+    public int getCategoryID() {
+        return categoryID;
     }
 
-    public void setCatagoryID(int catagoryID) {
-        this.catagoryID = catagoryID;
+    public void setCategoryID(int categoryID) {
+        this.categoryID = categoryID;
     }
 
     public String getCatName() {
