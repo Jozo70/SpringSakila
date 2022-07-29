@@ -9,15 +9,29 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/actor")
 public class ActorController {
-    @Autowired
-    private final ActorRepository actorRepository;
+    private ActorRepository actorRepository;
 
     public ActorController(ActorRepository actorRepository) {
         this.actorRepository = actorRepository;
     }
 
-    @GetMapping
+
+    //Get All Actors
+    @GetMapping("/All_Actors")
     public @ResponseBody Iterable<Actor> getActors() {
         return actorRepository.findAll();
+    }
+
+    //Get Actor by ID
+    @GetMapping("/Actor_By_ID")
+    public @ResponseBody
+    Actor getActorById(int actorID){
+        return actorRepository.findById(actorID).orElseThrow();
+    }
+
+    ///Get Actor by First Name
+    @GetMapping("/Actor_By_Name")
+    Actor getActorByName(String firstName){
+        return actorRepository.findByName(firstName);
     }
 }

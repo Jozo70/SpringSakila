@@ -8,7 +8,6 @@ import java.util.*;
 @Entity
 @Table(name = "film")
 public class Film {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "film_id")
@@ -18,41 +17,35 @@ public class Film {
     @JoinTable(name = "film_actor",joinColumns = @JoinColumn(name = "film_id"),inverseJoinColumns = @JoinColumn(name = "actor_id"))
     List<Actor> filmActor = new ArrayList<>();
 
-    @Column(name = "title")
+    ///Attributes
     private String title;
-
-    @Column(name = "description")
     private String description;
-
-    @Column(name = "release_year")
     private int releaseYear;
-
-    @Column(name = "language_id")
     private int languageId;
-
-    @Column(name = "original_language_id")
     private int originalLanguageId;
-
-    @Column(name = "rental_duration")
     private int rentalDuration;
-
-    @Column(name = "rental_rate")
-    private float rentalRate;
-
-    @Column(name = "length")
+    private double rentalRate;
     private float length;
-
-    @Column(name = "replacement_cost")
     private float replacementCost;
-
-    @Column(name = "rating")
     private float rating;
-
-    @Column(name = "special_features")
-    private float special_features;
-
-    @Column(name = "last_update")
+    private String special_features;
     private float lastUpdate;
+
+    public Film(String title, String description, Integer releaseYear, Integer languageId, Integer originalLanguageId,
+                Integer rentalDuration, Double rentalRate, Float length, Float replacementCost,
+                Float rating, String specialFeatures) {
+        this.title = title;
+        this.description = description;
+        this.releaseYear = releaseYear;
+        this.languageId = languageId;
+        this.originalLanguageId = originalLanguageId;
+        this.rentalDuration = rentalDuration;
+        this.rentalRate = rentalRate;
+        this.length = length;
+        this.replacementCost = replacementCost;
+        this.rating = rating;
+        this.special_features = specialFeatures;
+    }
 
     public Film(){}
 
@@ -111,11 +104,11 @@ public class Film {
         this.rentalDuration = rentalDuration;
     }
 
-    public float getRentalRate() {
+    public double getRentalRate() {
         return rentalRate;
     }
 
-    public void setRentalRate(float rentalRate) {
+    public void setRentalRate(double rentalRate) {
         this.rentalRate = rentalRate;
     }
 
@@ -143,11 +136,11 @@ public class Film {
         this.rating = rating;
     }
 
-    public float getSpecial_features() {
+    public String getSpecial_features() {
         return special_features;
     }
 
-    public void setSpecial_features(float special_features) {
+    public void setSpecial_features(String special_features) {
         this.special_features = special_features;
     }
 
@@ -157,5 +150,13 @@ public class Film {
 
     public void setLastUpdate(float lastUpdate) {
         this.lastUpdate = lastUpdate;
+    }
+
+    public List<Actor> getFilmActor(){
+        return filmActor;
+    }
+
+    public void setFilmActor(List<Actor> filmActor){
+        this.filmActor = filmActor;
     }
 }

@@ -19,15 +19,13 @@ public class Actor {
     @JsonIgnore
     @ManyToMany(mappedBy = "filmActor")
     List<Film> films = new ArrayList<>();
-
-    @Column(name = "first_name")
     private String firstName;
-
-    @Column(name = "last_name")
     private String lastName;
 
     public Actor(){}
 
+
+    ///Attributes
     public int getActorID() {
         return actorID;
     }
