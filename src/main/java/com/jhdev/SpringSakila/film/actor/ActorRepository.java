@@ -1,4 +1,4 @@
-package com.jhdev.SpringSakila.actor;
+package com.jhdev.SpringSakila.film.actor;
 
 import org.springframework.data.repository.CrudRepository;
 

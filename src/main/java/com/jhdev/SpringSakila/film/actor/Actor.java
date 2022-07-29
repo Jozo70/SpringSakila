@@ -1,6 +1,12 @@
-package com.jhdev.SpringSakila.actor;
+package com.jhdev.SpringSakila.film.actor;
+
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.jhdev.SpringSakila.film.Film;
 
 import javax.persistence.*;
+import java.util.*;
+
 
 @Entity
 @Table(name = "actor")
@@ -9,6 +15,10 @@ public class Actor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "actor_id")
     private int actorID;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "filmActor")
+    List<Film> films = new ArrayList<>();
 
     @Column(name = "first_name")
     private String firstName;

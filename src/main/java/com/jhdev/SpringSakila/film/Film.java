@@ -1,6 +1,9 @@
 package com.jhdev.SpringSakila.film;
 
+import com.jhdev.SpringSakila.film.actor.Actor;
+
 import javax.persistence.*;
+import java.util.*;
 
 @Entity
 @Table(name = "film")
@@ -10,6 +13,10 @@ public class Film {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "film_id")
     private int filmID;
+
+    @ManyToMany
+    @JoinTable(name = "film_actor",joinColumns = @JoinColumn(name = "film_id"),inverseJoinColumns = @JoinColumn(name = "actor_id"))
+    List<Actor> filmActor = new ArrayList<>();
 
     @Column(name = "title")
     private String title;

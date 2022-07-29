@@ -1,6 +1,8 @@
 package com.jhdev.SpringSakila.category;
 
 import javax.persistence.*;
+import java.util.*;
+
 
 @Entity
 @Table(name = "category")
@@ -9,6 +11,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "category_id")
     private int categoryID;
+
 
     @Column(name = "name")
     private String catName;

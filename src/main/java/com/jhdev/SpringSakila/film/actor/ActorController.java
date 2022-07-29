@@ -1,4 +1,4 @@
-package com.jhdev.SpringSakila.actor;
+package com.jhdev.SpringSakila.film.actor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

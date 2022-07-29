@@ -1,15 +1,17 @@
-package com.jhdev.SpringSakila.filmActor;
+package com.jhdev.SpringSakila.film.filmActor;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "filmactor")
+@Table(name = "film_actor")
 public class FilmActor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "actor_id")
     private int actorID;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "film_id")
     private String filmID;
 
