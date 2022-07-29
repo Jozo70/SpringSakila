@@ -3,7 +3,7 @@ package com.jhdev.SpringSakila.film.filmActor;
 import javax.persistence.*;
 import java.io.Serializable;
 
-public class FilmActorKey {
+public class FilmActorKey implements Serializable{
 
     @Id
     @Column(name="film_id")
@@ -11,11 +11,11 @@ public class FilmActorKey {
 
     @Id
     @Column(name="actor_id")
-    private Integer ActorId;
+    private Integer actorId;
 
-    public FilmActorKey(Integer filmId, Integer ActorId) {
+    public FilmActorKey(Integer filmId, Integer actorId) {
         this.filmId = filmId;
-        this.ActorId = ActorId;
+        this.actorId = actorId;
     }
 
     public FilmActorKey() {}
@@ -28,12 +28,12 @@ public class FilmActorKey {
         this.filmId = filmId;
     }
 
-    public Integer ActorId() {
-        return ActorId;
+    public Integer actorId() {
+        return actorId;
     }
 
-    public void setActorId(Integer ActorId) {
-        this.ActorId = ActorId;
+    public void setActorId(Integer actorId) {
+        this.actorId = actorId;
     }
 
 }
