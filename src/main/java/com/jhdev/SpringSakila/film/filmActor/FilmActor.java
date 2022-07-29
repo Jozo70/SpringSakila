@@ -1,47 +1,37 @@
 package com.jhdev.SpringSakila.film.filmActor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "film_actor")
-public class FilmActor {
+@IdClass(FilmActorKey.class)
+public class FilmActor implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "actor_id")
-    private int actorID;
-
+    private int filmId;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "film_id")
-    private String filmID;
+    private int actorId;
 
-    @Column(name = "last_update")
-    private String lastUpdate;
+    public FilmActor(int filmId, int actorId){
+        this.filmId = filmId;
+        this.actorId = actorId;
+    }
 
     public FilmActor(){}
 
-    public int getActorID() {
-        return actorID;
+    public int getFilmId() {
+        return filmId;
     }
 
-    public void setActorID(int actorID) {
-        this.actorID = actorID;
+    public void setFilmId(int filmId) {
+        this.filmId = filmId;
+    }
+    public int getActorId() {
+        return actorId;
     }
 
-    public String getFilmID() {
-        return filmID;
-    }
-
-    public void setFilmID(String filmID) {
-        this.filmID = filmID;
-    }
-
-    public String getLastUpdate() {
-        return lastUpdate;
-    }
-
-    public void setLastUpdate(String lastUpdate) {
-        this.lastUpdate = lastUpdate;
+    public void setActorId(int actorId) {
+        this.actorId = actorId;
     }
 
 }
