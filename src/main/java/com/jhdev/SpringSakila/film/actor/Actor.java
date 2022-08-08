@@ -12,18 +12,18 @@ import java.util.*;
 @Table(name = "actor")
 public class Actor {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "actor_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int actorID;
 
     @JsonIgnore
     @ManyToMany(mappedBy = "filmActor")
     List<Film> films = new ArrayList<>();
 
-    public Actor(){}
+    public Actor(){
+    }
 
     ///Attributes
-
     private String firstName,lastName;
 
     public int getActorID() {

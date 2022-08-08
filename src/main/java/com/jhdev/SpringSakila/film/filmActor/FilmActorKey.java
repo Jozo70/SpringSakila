@@ -3,6 +3,7 @@ package com.jhdev.SpringSakila.film.filmActor;
 import javax.persistence.*;
 import java.io.Serializable;
 
+@Embeddable
 public class FilmActorKey implements Serializable{
 
     @Id
