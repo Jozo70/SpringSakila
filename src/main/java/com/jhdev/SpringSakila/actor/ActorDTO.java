@@ -1,6 +1,4 @@
-package com.jhdev.SpringSakila.film.actor;
-
-import java.util.Optional;
+package com.jhdev.SpringSakila.actor;
 
 public class ActorDTO {
     private Integer actorID;
@@ -15,7 +13,7 @@ public class ActorDTO {
         this.fullName = fullName;
     }
 
-    public ActorDTO(){}
+    public ActorDTO(String sammy, String struggle){}
 
     public int getActorID(){              //Optional<Integer>
         return actorID;            //Optional.ofNullable(actorID)

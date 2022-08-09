@@ -1,6 +1,6 @@
 package com.jhdev.SpringSakila.film;
 
-import com.jhdev.SpringSakila.film.actor.Actor;
+import com.jhdev.SpringSakila.actor.Actor;
 
 import javax.persistence.*;
 import java.util.*;

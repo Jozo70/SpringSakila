@@ -1,7 +1,6 @@
-package com.jhdev.SpringSakila.film.actor;
+package com.jhdev.SpringSakila.actor;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jhdev.SpringSakila.film.Film;
 import org.hibernate.annotations.Formula;
 
