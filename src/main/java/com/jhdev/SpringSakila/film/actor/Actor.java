@@ -18,7 +18,7 @@ public class Actor {
     @Id
     @Column(name = "actor_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int actorID;
+    private int ID;
 
     @Column(name="first_name")
     private String firstName;
@@ -28,6 +28,13 @@ public class Actor {
 
     @Formula("concat(first_name, ' ',last_name")
     private String fullName;
+    public Actor(ActorDTO actorDTO){
+        this.ID = actorDTO.getActorID();
+        this.firstName = actorDTO.getFirstName();
+        this.lastName = actorDTO.getLastName();
+    }
+
+    public Actor(){}
 
     //@JsonIgnore
     @ManyToMany
@@ -37,17 +44,15 @@ public class Actor {
 
     private List<Film> FilmList = new ArrayList<>();
 
-    public Actor(){
-    }
 
     ////////                GET SETS                  \\\\\\\\\\
 
     public int getActorID() {
-        return actorID;
+        return ID;
     }
 
     public void setActorID(int actorID) {
-        this.actorID = actorID;
+        this.ID = actorID;
     }
 
     public String getFirstName() {

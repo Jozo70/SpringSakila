@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import java.util.*;
 
 @RestController
 @RequestMapping("/actor")
@@ -48,7 +49,8 @@ public class ActorController {
     }
     ////////             GET ACTOR BY FIRST NAME             \\\\\\\\\\
     @GetMapping("/Actor_By_First_Name")
+    public @ResponseBody
     Actor getActorByName(@RequestParam String firstName){
-        return actorRepository.findByName(firstName);
+        return actorRepository.findByFirstName(firstName);
     }
 }

@@ -6,7 +6,6 @@ public class ActorDTO {
     private Integer actorID;
     private String firstName;
     private String lastName;
-
     private String fullName;
 
     public ActorDTO(Integer actorID, String firstName, String lastName, String fullName){
@@ -16,24 +15,26 @@ public class ActorDTO {
         this.fullName = fullName;
     }
 
-    public Optional<Integer> getActorID(){
-        return Optional.ofNullable(actorID);
+    public ActorDTO(){}
+
+    public int getActorID(){              //Optional<Integer>
+        return actorID;            //Optional.ofNullable(actorID)
     }
 
     public void setActorID(Integer actorID){
         this.actorID = actorID;
     }
 
-    public Optional<String> getFirstName(){
-        return Optional.ofNullable(firstName);
+    public String getFirstName(){
+        return firstName;
     }
 
     public void setFirstName(String firstName){
         this.firstName = firstName;
     }
 
-    public Optional<String> getLastName(){
-        return Optional.ofNullable(lastName);
+    public String getLastName(){
+        return lastName;
     }
 
     public void setLastName(String lastName){
