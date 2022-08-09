@@ -13,13 +13,13 @@ import java.util.List;
 @Entity
 @Table(name = "actor")
 public class Actor {
+
+    ////////                ATTRIBUTES                  \\\\\\\\\\
     @Id
     @Column(name = "actor_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int actorID;
 
-
-    ////////                ATTRIBUTES                  \\\\\\\\\\
     @Column(name="first_name")
     private String firstName;
 
