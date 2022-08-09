@@ -1,37 +1,54 @@
 package com.jhdev.SpringSakila.film.actor;
 
 //import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/actor")
 public class ActorController {
-    private ActorRepository actorRepository;
-
+    private final ActorRepository actorRepository;
+    private static final String NOT_FOUND_STAT_MESS = "There is no Actor that exists with that ID.";
     public ActorController(ActorRepository actorRepository) {
         this.actorRepository = actorRepository;
     }
 
+    ////////                    C R U D                    \\\\\\\\\\
+    ////////                CREATE NEW ACTOR               \\\\\\\\\\
+//    @PostMapping("/Add_New_Actor")
+//    public @ResponseBody
+//    void addNewActor(@RequestBody ActorDTO actorDTO){
+//        Actor a = new Actor(actorDTO);
+//        actorRepository.save(a);
+//    }
 
-    //Get All Actors
+    ////////                GET ALL ACTORS                 \\\\\\\\\\
     @GetMapping("/All_Actors")
     public @ResponseBody Iterable<Actor> getActors() {
         return actorRepository.findAll();
     }
 
-    //Get Actor by ID
+    ////////                GET ACTOR BY ID                 \\\\\\\\\\
     @GetMapping("/Actor_By_ID")
     public @ResponseBody
-    Actor getActorById(int actorID){
-        return actorRepository.findById(actorID).orElseThrow();
+    Actor getActorById(@RequestParam int actorID){
+        if (!actorRepository.findById(actorID).isEmpty()){
+            return actorRepository.findById(actorID).get();
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,NOT_FOUND_STAT_MESS); //return actorRepository.findById(actorID).orElseThrow();
+        }
     }
 
-    ///Get Actor by First Name
-    @GetMapping("/Actor_By_Name")
-    Actor getActorByName(String firstName){
+    ////////             GET ACTOR BY FULL NAME              \\\\\\\\\\
+    @GetMapping("/Actor_By_Full_Name")
+    public @ResponseBody
+    Actor getActorByFullName(@RequestParam String fullName){
+        return actorRepository.findByFullName(fullName);
+    }
+    ////////             GET ACTOR BY FIRST NAME             \\\\\\\\\\
+    @GetMapping("/Actor_By_First_Name")
+    Actor getActorByName(@RequestParam String firstName){
         return actorRepository.findByName(firstName);
     }
 }

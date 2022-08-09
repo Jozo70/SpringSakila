@@ -18,6 +18,8 @@ public class Actor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int actorID;
 
+
+    ////////                ATTRIBUTES                  \\\\\\\\\\
     @Column(name="first_name")
     private String firstName;
 
@@ -38,7 +40,7 @@ public class Actor {
     public Actor(){
     }
 
-    ///GET SETS
+    ////////                GET SETS                  \\\\\\\\\\
 
     public int getActorID() {
         return actorID;
@@ -67,4 +69,13 @@ public class Actor {
     public String getFullName() {
         return fullName;
     }
+
+    public List<Film> getFilmList(){
+        return FilmList;
+    }
+
+    public void setFilmList(List<Film> FilmList){
+        this.FilmList = FilmList;
+    }
+
 }

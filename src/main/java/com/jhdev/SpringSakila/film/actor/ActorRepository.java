@@ -7,5 +7,5 @@ public interface ActorRepository extends CrudRepository <Actor,Integer> {
 
     Actor findByID(int actorID);
     Actor findByName(String firstName);
-    List<Actor> findByFullName(String fullName);
+    Actor findByFullName(String fullName);
 }
