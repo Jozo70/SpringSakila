@@ -3,9 +3,11 @@ package com.jhdev.SpringSakila.film.actor;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jhdev.SpringSakila.film.Film;
+import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -16,15 +18,27 @@ public class Actor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int actorID;
 
-    @JsonIgnore
-    @ManyToMany(mappedBy = "filmActor")
-    List<Film> films = new ArrayList<>();
+    @Column(name="first_name")
+    private String firstName;
+
+    @Column(name="last_name")
+    private String lastName;
+
+    @Formula("concat(first_name, ' ',last_name")
+    private String fullName;
+
+    //@JsonIgnore
+    @ManyToMany
+    @JoinTable(name="film_actor",
+            joinColumns = @JoinColumn(name="actor_id"),
+            inverseJoinColumns = @JoinColumn(name="film_id"))
+
+    private List<Film> FilmList = new ArrayList<>();
 
     public Actor(){
     }
 
-    ///Attributes
-    private String firstName,lastName;
+    ///GET SETS
 
     public int getActorID() {
         return actorID;
@@ -48,5 +62,9 @@ public class Actor {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getFullName() {
+        return fullName;
     }
 }
