@@ -1,27 +1,27 @@
 package com.jhdev.SpringSakila.actor;
 
 public class ActorDTO {
-    private Integer actorID;
+    //private Integer actorID;
     private String firstName;
     private String lastName;
-    private String fullName;
+    //private String fullName;
 
     public ActorDTO(Integer actorID, String firstName, String lastName, String fullName){
-        this.actorID = actorID;
+        //this.actorID = actorID;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.fullName = fullName;
+        //this.fullName = fullName;
     }
 
     public ActorDTO(String sammy, String struggle){}
 
-    public int getActorID(){              //Optional<Integer>
-        return actorID;            //Optional.ofNullable(actorID)
-    }
+    //public int getActorID(){              //Optional<Integer>
+    //    return actorID;            //Optional.ofNullable(actorID)
+    //}
 
-    public void setActorID(Integer actorID){
-        this.actorID = actorID;
-    }
+    //public void setActorID(Integer actorID){
+    //    this.actorID = actorID;
+    //}
 
     public String getFirstName(){
         return firstName;

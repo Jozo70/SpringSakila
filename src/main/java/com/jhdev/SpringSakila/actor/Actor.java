@@ -28,7 +28,7 @@ public class Actor {
     @Formula("concat(first_name, ' ',last_name")
     private String fullName;
     public Actor(ActorDTO actorDTO){
-        this.ID = actorDTO.getActorID();
+        //this.ID = actorDTO.getActorID();
         this.firstName = actorDTO.getFirstName();
         this.lastName = actorDTO.getLastName();
     }
