@@ -25,4 +25,10 @@ public class ActorStepDefs {
         actor = new Actor(actorDTO);
     }
 
+    @Then("I should Get Sammy Struggle")
+    public void i_should_get_sammy_struggle(){
+        assertEquals("Sammy", actor.getFirstName(),"The first Name is unexpected");
+        assertEquals("Struggle", actor.getLastName(), "The last name is unexpected");
+    }
+
 }
