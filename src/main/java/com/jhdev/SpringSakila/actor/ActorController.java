@@ -3,6 +3,7 @@ package com.jhdev.SpringSakila.actor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/actor")
@@ -24,7 +25,8 @@ public class ActorController {
 
     ////////                GET ALL ACTORS                 \\\\\\\\\\
     @GetMapping("/All_Actors")
-    public @ResponseBody Iterable<Actor> getActors() {
+    public @ResponseBody
+    Iterable<Actor> getActors() {
         return actorRepository.findAll();
     }
 

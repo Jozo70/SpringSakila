@@ -2,11 +2,15 @@ package com.jhdev.SpringSakila.actor;
 
 
 import com.jhdev.SpringSakila.film.Film;
+//import com.jhdev.SpringSakila.film.FilmActor;
 import org.hibernate.annotations.Formula;
+
+//import org.springframework.hateoas.Link;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collection;
 
 
 @Entity
@@ -18,34 +22,33 @@ public class Actor {
     @Column(name = "actor_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
-
-    @Column(name="first_name")
+    @Column(name = "first_name")
     private String firstName;
-
-    @Column(name="last_name")
+    @Column(name = "last_name")
     private String lastName;
 
     @Formula("concat(first_name, ' ',last_name")
     private String fullName;
     public Actor(ActorDTO actorDTO){
         //this.ID = actorDTO.getActorID();
-        this.firstName = actorDTO.getFirstName();
-        this.lastName = actorDTO.getLastName();
+        this.updateDTO(actorDTO);
     }
-
-    public Actor(){}
+    public void updateDTO(ActorDTO actorDTO){
+        this.firstName = actorDTO.getFirstName();//orElse(firstName);
+        this.lastName = actorDTO.getLastName();//orElse(lastName);
+    }
 
     //@JsonIgnore
     @ManyToMany
     @JoinTable(name="film_actor",
             joinColumns = @JoinColumn(name="actor_id"),
             inverseJoinColumns = @JoinColumn(name="film_id"))
-
     private List<Film> FilmList = new ArrayList<>();
 
+    ////////              CONSTRUCTOR                \\\\\\\\\\
+    public Actor(){}
 
     ////////                GET SETS                  \\\\\\\\\\
-
     public int getActorID() {
         return ID;
     }
@@ -81,5 +84,12 @@ public class Actor {
     public void setFilmList(List<Film> FilmList){
         this.FilmList = FilmList;
     }
+
+//    @Override
+//    protected Collection<Link> getLinks(){
+//        return List.of(
+//                linkTo(methodOn(ActorController.class).getActorByID(getActorID())).withSelfRel()
+//        );
+//    }
 
 }

@@ -1,5 +1,6 @@
 package com.jhdev.SpringSakila.film;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jhdev.SpringSakila.actor.Actor;
 
 import javax.persistence.*;
@@ -18,20 +19,31 @@ public class Film {
     List<Actor> filmActor = new ArrayList<>();
 
     ///Attributes
+    @Column(name = "title")
     private String title;
+    @Column(name = "description")
     private String description;
+    @Column(name = "release_year")
     private int releaseYear;
+    @Column(name = "language_id")
     private int languageId;
+    @Column(name = "original_language_id")
     private int originalLanguageId;
+    @Column(name = "rental_duration")
     private int rentalDuration;
+    @Column(name = "rental_rate")
     private double rentalRate;
+    @Column(name = "length")
     private float length;
+    @Column(name = "replacement_cost")
     private float replacementCost;
+    @Column(name = "rating")
     private float rating;
+    @Column(name = "special_features")
     private String special_features;
     private float lastUpdate;
 
-    public Film(String title, String description, Integer releaseYear, Integer languageId, Integer originalLanguageId,
+    public Film(String title, String     description, Integer releaseYear, Integer languageId, Integer originalLanguageId,
                 Integer rentalDuration, Double rentalRate, Float length, Float replacementCost,
                 Float rating, String specialFeatures) {
         this.title = title;

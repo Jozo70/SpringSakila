@@ -19,7 +19,7 @@ public class Category {
     @Column(name = "last_update")
     private String lastUpdate;
 
-    public Category(){}
+    //public Category(){}
 
     public int getCategoryID() {
         return categoryID;

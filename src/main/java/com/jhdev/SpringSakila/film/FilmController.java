@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/film")
 public class FilmController {
-    @Autowired
+    //@Autowired
     private final FilmRepository filmRepository;
 
     public FilmController(FilmRepository filmRepository) {

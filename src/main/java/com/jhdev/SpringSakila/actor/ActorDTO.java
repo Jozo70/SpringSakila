@@ -6,7 +6,7 @@ public class ActorDTO {
     private String lastName;
     //private String fullName;
 
-    public ActorDTO(Integer actorID, String firstName, String lastName, String fullName){
+    public ActorDTO(Integer ID, String firstName, String lastName, String fullName){
         //this.actorID = actorID;
         this.firstName = firstName;
         this.lastName = lastName;
