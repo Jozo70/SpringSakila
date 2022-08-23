@@ -3,11 +3,14 @@ package com.jhdev.SpringSakila.actor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.beans.factory.annotation.Autowired;  //AUG REVAMP
 import java.util.List;
 
 @RestController
 @RequestMapping("/actor")
 public class ActorController {
+
+    @Autowired  // Links to ActorRepository
     private final ActorRepository actorRepository;
     private static final String NOT_FOUND_STAT_MESS = "There is no Actor that exists with that ID.";
     public ActorController(ActorRepository actorRepository) {
@@ -41,16 +44,16 @@ public class ActorController {
         }
     }
 
-    ////////             GET ACTOR BY FULL NAME              \\\\\\\\\\
-    @GetMapping("/Actor_By_Full_Name")
-    public @ResponseBody
-    Actor getActorByFullName(@RequestParam String fullName){
-        return actorRepository.findByFullName(fullName);
-    }
+    ////////             GET ACTOR BY FULL NAME              \\\\\\\\\\  //COMMENTED AUG 23
+    //@GetMapping("/Actor_By_Full_Name")
+    //public @ResponseBody
+    //Actor getActorByFullName(@RequestParam String fullName){
+    //    return actorRepository.findByFullName(fullName);
+    //}
     ////////             GET ACTOR BY FIRST NAME             \\\\\\\\\\
     @GetMapping("/Actor_By_First_Name")
     public @ResponseBody
-    Actor getActorByName(@RequestParam String firstName){
+    Iterable<Actor>getActorByName(@RequestParam String firstName){
         return actorRepository.findByFirstName(firstName);
     }
 }

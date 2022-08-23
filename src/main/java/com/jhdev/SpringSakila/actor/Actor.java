@@ -1,16 +1,13 @@
 package com.jhdev.SpringSakila.actor;
 
 
-import com.jhdev.SpringSakila.film.Film;
 //import com.jhdev.SpringSakila.film.FilmActor;
-import org.hibernate.annotations.Formula;
+import com.jhdev.SpringSakila.film.filmActor.FilmActor;
 
 //import org.springframework.hateoas.Link;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Collection;
+import java.util.Set;
 
 
 @Entity
@@ -21,40 +18,53 @@ public class Actor {
     @Id
     @Column(name = "actor_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ID;
+    private int actorID;
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
 
-    @Formula("concat(first_name, ' ',last_name")
-    private String fullName;
-    public Actor(ActorDTO actorDTO){
-        //this.ID = actorDTO.getActorID();
-        this.updateDTO(actorDTO);
-    }
-    public void updateDTO(ActorDTO actorDTO){
-        this.firstName = actorDTO.getFirstName();//orElse(firstName);
-        this.lastName = actorDTO.getLastName();//orElse(lastName);
-    }
+
+    ////////              OLD CODE  11TH AUG            \\\\\\\\\\
+
+//    @Formula("concat(first_name, ' ',last_name")
+//    private String fullName;
+//    public Actor(ActorDTO actorDTO){
+//        //this.ID = actorDTO.getActorID();
+//        this.updateDTO(actorDTO);
+//    }
+//    public void updateDTO(ActorDTO actorDTO){
+//        this.firstName = actorDTO.getFirstName();//orElse(firstName);
+//        this.lastName = actorDTO.getLastName();//orElse(lastName);
+//    }
 
     //@JsonIgnore
-    @ManyToMany
-    @JoinTable(name="film_actor",
-            joinColumns = @JoinColumn(name="actor_id"),
-            inverseJoinColumns = @JoinColumn(name="film_id"))
-    private List<Film> FilmList = new ArrayList<>();
+//    @ManyToMany
+//    @JoinTable(name="film_actor",
+//            joinColumns = @JoinColumn(name="actor_id"),
+//            inverseJoinColumns = @JoinColumn(name="film_id"))
+//    private List<Film> FilmList = new ArrayList<>();
+
+    ////////               ALT CODE            \\\\\\\\\\
+    @OneToMany(mappedBy = "actor")
+    private Set <FilmActor> ActFilms;
+
+    public Actor(String firstName, String lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
 
     ////////              CONSTRUCTOR                \\\\\\\\\\
     public Actor(){}
 
     ////////                GET SETS                  \\\\\\\\\\
     public int getActorID() {
-        return ID;
+        return actorID;
     }
 
     public void setActorID(int actorID) {
-        this.ID = actorID;
+        this.actorID = actorID;
     }
 
     public String getFirstName() {
@@ -73,17 +83,20 @@ public class Actor {
         this.lastName = lastName;
     }
 
-    public String getFullName() {
-        return fullName;
-    }
+//    public String getFullName() {
+//        return fullName;
+//    }
 
-    public List<Film> getFilmList(){
-        return FilmList;
-    }
+//    public List<Film> getFilmList(){
+//        return FilmList;
+//    }
 
-    public void setFilmList(List<Film> FilmList){
-        this.FilmList = FilmList;
-    }
+//    public void setFilmList(List<Film> FilmList){
+//        this.FilmList = FilmList;
+//    }
+
+
+    //// OLDER CODE ////
 
 //    @Override
 //    protected Collection<Link> getLinks(){

@@ -1,4 +1,5 @@
 package com.jhdev.SpringSakila.film;
+import com.jhdev.SpringSakila.film.filmActor.FilmActor;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jhdev.SpringSakila.actor.Actor;
@@ -14,9 +15,12 @@ public class Film {
     @Column(name = "film_id")
     private int filmID;
 
-    @ManyToMany
-    @JoinTable(name = "film_actor",joinColumns = @JoinColumn(name = "film_id"),inverseJoinColumns = @JoinColumn(name = "actor_id"))
-    List<Actor> filmActor = new ArrayList<>();
+    //AUG23//@ManyToMany
+    //AUG23//@JoinTable(name = "film_actor",joinColumns = @JoinColumn(name = "film_id"),inverseJoinColumns = @JoinColumn(name = "actor_id"))
+    //AUG23//List<Actor> filmActor = new ArrayList<>();
+    @OneToMany(mappedBy = "film")
+    Set<FilmActor> filmActors;
+
 
     ///Attributes
     @Column(name = "title")
@@ -41,7 +45,7 @@ public class Film {
     private float rating;
     @Column(name = "special_features")
     private String special_features;
-    private float lastUpdate;
+    //private float lastUpdate;
 
     public Film(String title, String     description, Integer releaseYear, Integer languageId, Integer originalLanguageId,
                 Integer rentalDuration, Double rentalRate, Float length, Float replacementCost,
@@ -156,19 +160,19 @@ public class Film {
         this.special_features = special_features;
     }
 
-    public float getLastUpdate() {
-        return lastUpdate;
-    }
+    //public float getLastUpdate() {
+    //    return lastUpdate;
+    //}
 
-    public void setLastUpdate(float lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
+    //public void setLastUpdate(float lastUpdate) {
+    //    this.lastUpdate = lastUpdate;
+    //}
 
-    public List<Actor> getFilmActor(){
-        return filmActor;
-    }
+    //public List<Actor> getFilmActor(){
+    //    return filmActor;
+    //}
 
-    public void setFilmActor(List<Actor> filmActor){
-        this.filmActor = filmActor;
-    }
+    //public void setFilmActor(List<Actor> filmActor){
+    //    this.filmActor = filmActor;
+    //}
 }
