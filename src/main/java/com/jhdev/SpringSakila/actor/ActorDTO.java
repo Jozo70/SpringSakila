@@ -4,6 +4,7 @@ public class ActorDTO {
     private Integer actorID;
     private String firstName;
     private String lastName;
+
     //private String fullName;
 
     //public ActorDTO(Integer ID, String firstName, String lastName, String fullName){
@@ -15,13 +16,13 @@ public class ActorDTO {
 
     //public ActorDTO(String sammy, String struggle){}
 
-    //public int getActorID(){              //Optional<Integer>
-    //    return actorID;            //Optional.ofNullable(actorID)
-    //}
+    public Integer getActorID(){              //Optional<Integer>
+        return actorID;            //Optional.ofNullable(actorID)
+    }
 
-    //public void setActorID(Integer actorID){
-    //    this.actorID = actorID;
-    //}
+    public void setActorID(Integer actorID){
+        this.actorID = actorID;
+    }
 
     public String getFirstName(){
         return firstName;

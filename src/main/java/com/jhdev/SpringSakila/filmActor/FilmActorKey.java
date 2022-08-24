@@ -1,27 +1,28 @@
-package com.jhdev.SpringSakila.film.filmActor;
+package com.jhdev.SpringSakila.filmActor;
 
+//import javax.persistence.Column;
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Embeddable
 public class FilmActorKey implements Serializable{
 
-    @Id
+    //@Id
     @Column(name="film_id")
-    private Integer filmId;
+    private int filmId;
 
-    @Id
+    //@Id
     @Column(name="actor_id")
-    private Integer actorId;
+    private int actorId;
 
-    public FilmActorKey(Integer filmId, Integer actorId) {
+    public FilmActorKey(int filmId, int actorId) {
         this.filmId = filmId;
         this.actorId = actorId;
     }
 
-    public FilmActorKey() {}
+    //public FilmActorKey() {} //EMPTY CONSTRUCTOR 24TH AUG
 
-    public Integer getFilmId() {
+    public int getFilmId() {
         return filmId;
     }
 
@@ -29,7 +30,7 @@ public class FilmActorKey implements Serializable{
         this.filmId = filmId;
     }
 
-    public Integer actorId() {
+    public int getActorId() {
         return actorId;
     }
 

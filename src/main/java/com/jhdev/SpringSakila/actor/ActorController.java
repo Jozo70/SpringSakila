@@ -37,23 +37,25 @@ public class ActorController {
     @GetMapping("/Actor_By_ID")
     public @ResponseBody
     Actor getActorById(@RequestParam int actorID){
-        if (!actorRepository.findById(actorID).isEmpty()){
-            return actorRepository.findById(actorID).get();
-        } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,NOT_FOUND_STAT_MESS); //return actorRepository.findById(actorID).orElseThrow();
-        }
+        //if (!actorRepository.findById(actorID).isEmpty()){
+            return actorRepository.findById(actorID);
+        //} else {
+            //throw new ResponseStatusException(HttpStatus.NOT_FOUND,NOT_FOUND_STAT_MESS); //return actorRepository.findById(actorID).orElseThrow();
+        //}
     }
 
     ////////             GET ACTOR BY FULL NAME              \\\\\\\\\\  //COMMENTED AUG 23
-    //@GetMapping("/Actor_By_Full_Name")
-    //public @ResponseBody
-    //Actor getActorByFullName(@RequestParam String fullName){
-    //    return actorRepository.findByFullName(fullName);
-    //}
+    @GetMapping("/Actor_By_Full_Name")
+    public @ResponseBody
+    Actor getActorByFullName(@RequestParam String firstName, String lastName){
+        return actorRepository.findByFirstNameAndLastName(firstName, lastName);
+    }
     ////////             GET ACTOR BY FIRST NAME             \\\\\\\\\\
     @GetMapping("/Actor_By_First_Name")
     public @ResponseBody
     Iterable<Actor>getActorByName(@RequestParam String firstName){
         return actorRepository.findByFirstName(firstName);
     }
+
+
 }

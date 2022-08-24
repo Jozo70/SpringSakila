@@ -1,8 +1,5 @@
 package com.jhdev.SpringSakila.film;
-import com.jhdev.SpringSakila.film.filmActor.FilmActor;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.jhdev.SpringSakila.actor.Actor;
+import com.jhdev.SpringSakila.filmActor.FilmActor;
 
 import javax.persistence.*;
 import java.util.*;
@@ -18,6 +15,7 @@ public class Film {
     //AUG23//@ManyToMany
     //AUG23//@JoinTable(name = "film_actor",joinColumns = @JoinColumn(name = "film_id"),inverseJoinColumns = @JoinColumn(name = "actor_id"))
     //AUG23//List<Actor> filmActor = new ArrayList<>();
+
     @OneToMany(mappedBy = "film")
     Set<FilmActor> filmActors;
 

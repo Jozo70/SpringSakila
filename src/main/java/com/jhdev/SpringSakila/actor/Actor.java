@@ -2,10 +2,9 @@ package com.jhdev.SpringSakila.actor;
 
 
 //import com.jhdev.SpringSakila.film.FilmActor;
-import com.jhdev.SpringSakila.film.filmActor.FilmActor;
+import com.jhdev.SpringSakila.filmActor.FilmActor;
 
 //import org.springframework.hateoas.Link;
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -24,11 +23,15 @@ public class Actor {
     @Column(name = "last_name")
     private String lastName;
 
+    @OneToMany(mappedBy = "actor")
+    private Set<FilmActor> actFilms;
+
+////// 11TH AUG/24TH AUG //////
+//    @Formula("concat(first_name, ' ',last_name")
+//    private String fullName;
 
     ////////              OLD CODE  11TH AUG            \\\\\\\\\\
 
-//    @Formula("concat(first_name, ' ',last_name")
-//    private String fullName;
 //    public Actor(ActorDTO actorDTO){
 //        //this.ID = actorDTO.getActorID();
 //        this.updateDTO(actorDTO);
@@ -46,12 +49,13 @@ public class Actor {
 //    private List<Film> FilmList = new ArrayList<>();
 
     ////////               ALT CODE            \\\\\\\\\\
-    @OneToMany(mappedBy = "actor")
-    private Set <FilmActor> ActFilms;
+    //@OneToMany(mappedBy = "actor")
+    //private Set <FilmActor> ActFilms;
 
     public Actor(String firstName, String lastName){
         this.firstName = firstName;
         this.lastName = lastName;
+        //this.fullName = fullName;
     }
 
 
