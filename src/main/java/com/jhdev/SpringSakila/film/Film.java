@@ -3,6 +3,7 @@ import com.jhdev.SpringSakila.filmActor.FilmActor;
 
 import javax.persistence.*;
 import java.util.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "film")
@@ -26,19 +27,19 @@ public class Film {
     @Column(name = "description")
     private String description;
     @Column(name = "release_year")
-    private int releaseYear;
+    private Integer releaseYear;
     @Column(name = "language_id")
-    private int languageId;
+    private Integer languageId;
     @Column(name = "original_language_id")
-    private int originalLanguageId;
+    private Integer originalLanguageId;
     @Column(name = "rental_duration")
-    private int rentalDuration;
+    private Integer rentalDuration;
     @Column(name = "rental_rate")
-    private double rentalRate;
+    private BigDecimal rentalRate;
     @Column(name = "length")
     private float length;
     @Column(name = "replacement_cost")
-    private float replacementCost;
+    private BigDecimal replacementCost;
     @Column(name = "rating")
     private float rating;
     @Column(name = "special_features")
@@ -46,7 +47,7 @@ public class Film {
     //private float lastUpdate;
 
     public Film(String title, String     description, Integer releaseYear, Integer languageId, Integer originalLanguageId,
-                Integer rentalDuration, Double rentalRate, Float length, Float replacementCost,
+                Integer rentalDuration, BigDecimal rentalRate, Float length, BigDecimal replacementCost,
                 Float rating, String specialFeatures) {
         this.title = title;
         this.description = description;
@@ -63,7 +64,7 @@ public class Film {
 
     public Film(){}
 
-    public int getfilmID() {
+    public Integer getfilmID() {
         return filmID;
     }
 
@@ -86,7 +87,7 @@ public class Film {
     public void setDescription(String description) {
         this.description = description;
     }
-    public int getReleaseYear() {
+    public Integer getReleaseYear() {
         return releaseYear;
     }
 
@@ -94,7 +95,7 @@ public class Film {
         this.releaseYear = releaseYear;
     }
 
-    public int getLanguageId() {
+    public Integer getLanguageId() {
         return languageId;
     }
 
@@ -102,7 +103,7 @@ public class Film {
         this.languageId = languageId;
     }
 
-    public int getOriginalLanguageId() {
+    public Integer getOriginalLanguageId() {
         return originalLanguageId;
     }
 
@@ -110,7 +111,7 @@ public class Film {
         this.originalLanguageId = originalLanguageId;
     }
 
-    public int getRentalDuration() {
+    public Integer getRentalDuration() {
         return rentalDuration;
     }
 
@@ -118,11 +119,11 @@ public class Film {
         this.rentalDuration = rentalDuration;
     }
 
-    public double getRentalRate() {
+    public BigDecimal getRentalRate() {
         return rentalRate;
     }
 
-    public void setRentalRate(double rentalRate) {
+    public void setRentalRate(BigDecimal rentalRate) {
         this.rentalRate = rentalRate;
     }
 
@@ -134,11 +135,11 @@ public class Film {
         this.length = length;
     }
 
-    public float getReplacementCost() {
+    public BigDecimal getReplacementCost() {
         return replacementCost;
     }
 
-    public void setReplacementCost(float replacementCost) {
+    public void setReplacementCost(BigDecimal replacementCost) {
         this.replacementCost = replacementCost;
     }
 

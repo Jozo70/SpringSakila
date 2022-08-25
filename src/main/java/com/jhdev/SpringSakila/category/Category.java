@@ -16,10 +16,13 @@ public class Category {
     @Column(name = "name")
     private String catName;
 
-    @Column(name = "last_update")
-    private String lastUpdate;
+    //@Column(name = "last_update")
+    //private String lastUpdate;
 
-    //public Category(){}
+    public Category(String catName){
+        this.catName=catName;
+    }
+    public Category(){}
 
     public int getCategoryID() {
         return categoryID;
@@ -37,12 +40,12 @@ public class Category {
         this.catName = catName;
     }
 
-    public String getLastUpdate() {
-        return lastUpdate;
-    }
+    //public String getLastUpdate() {
+    //    return lastUpdate;
+    //}
 
-    public void setLastUpdate(String lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
+    //public void setLastUpdate(String lastUpdate) {
+    //    this.lastUpdate = lastUpdate;
+    //}
 
 }
