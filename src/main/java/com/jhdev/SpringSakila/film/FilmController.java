@@ -23,11 +23,11 @@ public class FilmController {
     }
 
     @PostMapping("/Add_New_Film")
-    public @ResponseBody String addNewFilm(@RequestParam String title, @RequestParam String description, @RequestParam Integer release_year, @RequestParam Integer language_id,
-                                           @RequestParam Integer originalLanguageId, @RequestParam Integer rental_duration,
-                                           @RequestParam BigDecimal rental_rate, @RequestParam float length, @RequestParam BigDecimal replacement_cost,
-                                           @RequestParam float rating, @RequestParam String special_features){
-        Film film = new Film(title, description, release_year, language_id, originalLanguageId, rental_duration, rental_rate, length, replacement_cost, rating, special_features);
+    public @ResponseBody String addNewFilm(@RequestParam String title, @RequestParam String description, @RequestParam Integer releaseYear, @RequestParam Integer languageId,
+                                           @RequestParam Integer originalLanguageId, @RequestParam Integer rentalDuration,
+                                           @RequestParam BigDecimal rentalRate, @RequestParam float length, @RequestParam BigDecimal replacementCost,
+                                           @RequestParam float rating, @RequestParam String specialFeatures){
+        Film film = new Film(title, description, releaseYear, languageId, originalLanguageId, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures);
         filmRepository.save(film);
         return "saved";
     }

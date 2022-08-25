@@ -13,6 +13,7 @@ public class Category {
     private int categoryID;
 
 
+    //Attributes
     @Column(name = "name")
     private String catName;
 

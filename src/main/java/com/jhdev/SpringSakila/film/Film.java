@@ -46,7 +46,7 @@ public class Film {
     private String special_features;
     //private float lastUpdate;
 
-    public Film(String title, String     description, Integer releaseYear, Integer languageId, Integer originalLanguageId,
+    public Film(String title, String description, Integer releaseYear, Integer languageId, Integer originalLanguageId,
                 Integer rentalDuration, BigDecimal rentalRate, Float length, BigDecimal replacementCost,
                 Float rating, String specialFeatures) {
         this.title = title;
