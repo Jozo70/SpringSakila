@@ -86,7 +86,7 @@
 						<exclude>**/FilmDTO.java</exclude>
 						<exclude>/**/*Controller.*</exclude>
 						<exclude>/**/*Repository.*</exclude>
-						<exclude>**/SakilaMicroservice*</exclude>
+						<exclude>**/SpringSakilaApplication*</exclude>
 						<exclude>**/FilmCategoryKey.java</exclude>
 					</excludes>
 				</configuration>
