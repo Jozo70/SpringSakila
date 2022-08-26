@@ -76,7 +76,7 @@ public class Film {
         return  title;
     }
 
-    public void SetFilmTitle(String title) {
+    public void setFilmTitle(String title) {
         this.title = title;
     }
 
@@ -158,6 +158,7 @@ public class Film {
     public void setSpecial_features(String special_features) {
         this.special_features = special_features;
     }
+
 
     //public float getLastUpdate() {
     //    return lastUpdate;
