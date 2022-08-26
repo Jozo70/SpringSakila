@@ -1,10 +1,8 @@
 package com.jhdev.SpringSakila.actor;
 
 
-//import com.jhdev.SpringSakila.film.FilmActor;
 import com.jhdev.SpringSakila.filmActor.FilmActor;
 
-//import org.springframework.hateoas.Link;
 import javax.persistence.*;
 import java.util.Set;
 
@@ -25,32 +23,6 @@ public class Actor {
 
     @OneToMany(mappedBy = "actor")
     private Set<FilmActor> actFilms;
-
-////// 11TH AUG/24TH AUG //////
-//    @Formula("concat(first_name, ' ',last_name")
-//    private String fullName;
-
-    ////////              OLD CODE  11TH AUG            \\\\\\\\\\
-
-//    public Actor(ActorDTO actorDTO){
-//        //this.ID = actorDTO.getActorID();
-//        this.updateDTO(actorDTO);
-//    }
-//    public void updateDTO(ActorDTO actorDTO){
-//        this.firstName = actorDTO.getFirstName();//orElse(firstName);
-//        this.lastName = actorDTO.getLastName();//orElse(lastName);
-//    }
-
-    //@JsonIgnore
-//    @ManyToMany
-//    @JoinTable(name="film_actor",
-//            joinColumns = @JoinColumn(name="actor_id"),
-//            inverseJoinColumns = @JoinColumn(name="film_id"))
-//    private List<Film> FilmList = new ArrayList<>();
-
-    ////////               ALT CODE            \\\\\\\\\\
-    //@OneToMany(mappedBy = "actor")
-    //private Set <FilmActor> ActFilms;
 
     public Actor(String firstName, String lastName){
         this.firstName = firstName;
@@ -87,26 +59,5 @@ public class Actor {
         this.lastName = lastName;
     }
 
-//    public String getFullName() {
-//        return fullName;
-//    }
-
-//    public List<Film> getFilmList(){
-//        return FilmList;
-//    }
-
-//    public void setFilmList(List<Film> FilmList){
-//        this.FilmList = FilmList;
-//    }
-
-
-    //// OLDER CODE ////
-
-//    @Override
-//    protected Collection<Link> getLinks(){
-//        return List.of(
-//                linkTo(methodOn(ActorController.class).getActorByID(getActorID())).withSelfRel()
-//        );
-//    }
 
 }
